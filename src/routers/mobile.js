@@ -2,6 +2,7 @@ const express = require("express");
 const Mobile = require("../models/mobile");
 const router = new express.Router();
 
+
 router.post("/register", async (req, res) => {
   const mobile = new Mobile(req.body);
   try {

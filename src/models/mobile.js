@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const validator = require("validator");
 
 const mobileSchema = new mongoose.Schema({
   mobile: {
@@ -8,6 +7,10 @@ const mobileSchema = new mongoose.Schema({
     unique: true,
   },
   carrier: {
+    type: String,
+    required: true,
+  },
+  customer: {
     type: String,
     required: true,
   },
