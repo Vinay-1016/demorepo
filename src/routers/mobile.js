@@ -1,7 +1,7 @@
 const express = require("express");
 const Mobile = require("../models/mobile");
 const router = new express.Router();
-
+require("../db/mobileconnect");
 
 router.post("/register", async (req, res) => {
   const mobile = new Mobile(req.body);
@@ -32,6 +32,7 @@ router.get("/allusers/:mobilenumber", async (req, res) => {
     const MobileDetails = await Mobile.findOne({
       mobile: mobile,
     });
+
     res.status(200).send(MobileDetails);
   } catch (e) {
     res.status(401).send({ error: "Please Enter Valid Mobile Number!" });
